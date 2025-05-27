@@ -1,0 +1,38 @@
+{
+  "name": "61359428-mamontov-grigoriy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./build && npm run build:tracker && npm run build:server",
+    "build:server": "tsc --build tsconfig.server.json",
+    "build:tracker": "webpack",
+    "start": "node build/index.js",
+    "start:dev": "npm run build && npm run start",
+    "format": "prettier . --write",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "husky": "^9.1.7",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "html-webpack-plugin": "^5.6.3",
+    "mongoose": "^8.9.5",
+    "ts-loader": "^9.5.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

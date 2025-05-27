@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>My website</title>
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["TrackerObject"] = r;
+        i[r] = i[r] || {
+          track: function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          },
+        };
+        i[r].l = 1 * new Date();
+        a = s.createElement(o);
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "<%= htmlWebpackPlugin.options.trackerUrl %>",
+        "tracker",
+      );
+
+      tracker.track("pageview");
+      tracker.track("test", "one", "two", "three");
+    </script>
+</head>
+<body>
+<button onclick="tracker.track('click-button')">Click me</button>
+<ul>
+    <li>
+        <a href="/1.html" onclick="tracker.track('click-link', '1')">1.html</a>
+    </li>
+    <li>
+        <a href="/2.html" onclick="tracker.track('click-link', '2')">2.html</a>
+    </li>
+    <li>
+        <a href="/3.html" onclick="tracker.track('click-link', '3', 'three')"
+        >3.html</a
+        >
+    </li>
+</ul>
+</body>
+</html>
